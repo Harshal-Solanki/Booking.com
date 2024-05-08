@@ -81,7 +81,7 @@ router.get("/search", async(req: Request, res: Response) =>{
     }
 })
 
-router.get("/", async (req: Request, res: Response) => {
+router.get("/", async (_req: Request, res: Response) => {
   try {
     const hotels = await Hotel.find().sort("-lastUpdated");
     res.json(hotels);
