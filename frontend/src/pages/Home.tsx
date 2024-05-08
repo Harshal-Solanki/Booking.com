@@ -3,19 +3,19 @@ import * as apiClient from "../api-clients";
 import LatestDestinationCard from "../Components/LatestDestinationCard";
 
 const Home = () => {
-  const { data: hotels } = useQuery("fetchQuery", () =>
-    apiClient.fetchHotels()
+  const { data: hotelData } = useQuery("fetchQuery", () =>
+    apiClient.fetchMyHotels()
   );
 
-  const topRowHotels = hotels?.slice(0, 2) || [];
-  const bottomRowHotels = hotels?.slice(2) || [];
+  const topRowHotels = hotelData?.slice(0,3) || [];
+  const bottomRowHotels = hotelData?.slice(3,7) || [];
 
   return (
     <div className="space-y-3">
       <h2 className="text-3xl font-bold">Latest Destinations</h2>
       <p>Most recent desinations added by our hosts</p>
       <div className="grid gap-4">
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
+        <div className="grid md:grid-cols-3 gap-4">
           {topRowHotels.map((hotel) => (
             <LatestDestinationCard hotel={hotel} />
           ))}

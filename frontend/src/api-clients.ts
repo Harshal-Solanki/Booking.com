@@ -178,7 +178,7 @@ export const searchHotels= async (searchParams: SearchParams): Promise<HotelSear
 }
 
 export const fetchHotels = async (): Promise<HotelType[]> => {
-  const response = await fetch(`${API_BASE_URL}/api/hotels`);
+  const response = await fetch(`${API_BASE_URL}/api/myhotel`);
   if (!response.ok) {
     throw new Error("Error fetching hotels");
   }
