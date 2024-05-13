@@ -1,12 +1,15 @@
 import { FormEvent, useState } from "react";
 import { useSearchContext } from "../Contexts/SearchContext"
 import { MdTravelExplore } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 
 
 const SearchBar = () =>{
     const Search= useSearchContext();
+    const navigate = useNavigate(); 
+
 
     const[destination, setDestination]= useState<string>(Search.destination)
     const[checkIn, setCheckIn]= useState<Date>(Search.checkIn)
@@ -21,6 +24,12 @@ const SearchBar = () =>{
     const handleSubmit = (event: FormEvent)=> {
         event.preventDefault();
         Search.saveSearchValues(destination, checkIn, checkOut, adultCount, childCount);
+
+        const formattedCheckIn = checkIn.toISOString().split('T')[0];
+        const formattedCheckOut = checkOut.toISOString().split('T')[0];
+        navigate(`/search?destination=${encodeURIComponent(destination)}&checkIn=${formattedCheckIn}&checkOut=${formattedCheckOut}&adultCount=${adultCount}&childCount=${childCount}`);
+
+        
     }
     return(
         <form onSubmit={handleSubmit} className=" p-2 bg-orange-400 rounded shadow-md grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-3 ">

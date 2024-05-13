@@ -8,7 +8,7 @@ type Props = {
 const LatestDestinationCard = ({ hotel }: Props) => {
   return (
     <Link
-      to={`/detail/${hotel._id}`}
+      to={`/details/${hotel._id}`}
       className="relative cursor-pointer overflow-hidden rounded-md"
     >
       <div className="h-[300px]">
