@@ -9,6 +9,7 @@ import { v2 as cloudinary } from "cloudinary";
 import  myHotelsRoutes  from "./routes/myHotels";
 import hotelRoutes from "./routes/hotels";
 import bookingRoutes  from "./routes/myBookings";
+import path from "path";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -27,12 +28,19 @@ app.use(cors({
     credentials: true,
 }))
 
+app.use(express.static(path.join(__dirname, "../../frontend/dist")));
+
+
 app.use("/api/auth", authRoutes)
 app.use("/api/users", userRoutes)
 app.use("/api/myhotel", myHotelsRoutes)
 app.use("/api/hotels", hotelRoutes)
 app.use("/api/mybookings", bookingRoutes);
 
+app.get("*", (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+  });
+  
 
 app.listen(3000, ()=>{
     console.log("Server running On port 3000")
