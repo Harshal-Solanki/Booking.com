@@ -4,7 +4,7 @@ import TypeSection from "./TypeSection";
 import FacilitiesSection from "./FacilitiesSection";
 import GuestsSection from "./GuestsSection";
 import ImagesSection from "./ImagesSection";
-import { HotelType } from "../../../../backend/src/models/hotel";
+import { HotelType } from "../../../shared/type";
 import { useEffect } from "react";
 
 

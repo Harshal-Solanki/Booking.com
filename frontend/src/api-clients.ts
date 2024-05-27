@@ -1,11 +1,11 @@
 // import { HotelFormData } from "./forms/ManageHotelForms/ManageHotelForms";
 import { RegisterFormData } from "./pages/Register";
 import { SignInFormData } from "./pages/SignIn";
-import { HotelType } from "../../backend/src/models/hotel";
+import { HotelType } from "../shared/type";
 // import { URLSearchParams } from "url";
-import {HotelSearchResponse, PaymentIntentResponse} from "../../backend/src/routes/hotels"
+import {HotelSearchResponse, PaymentIntentResponse} from "../shared/type"
 
-import { UserType } from "../../backend/src/models/user";
+import { UserType } from "../shared/type";
 import { BookingFormData } from "./forms/BookingForm/BookingForm";
 
 const API_BASE_URL= import.meta.env.VITE_API_BASE_URL || "https://booking-com-irml.vercel.app/";
