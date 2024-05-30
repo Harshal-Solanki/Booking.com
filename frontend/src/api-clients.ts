@@ -49,6 +49,8 @@ export const signIn=  async(formData: SignInFormData) =>{
         body: JSON.stringify(formData)
     })
     const responsebody= await response.json();
+    console.log(response)
+    console.log(responsebody)
     if(!response.ok){
         throw new Error(responsebody.message)
     }
