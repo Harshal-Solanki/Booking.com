@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cors({
-    origin: 'https://booking-com-4yv6.onrender.com/',
+    origin: 'https://vercel.com/harshal-solankis-projects/booking-com-rk5r/C29EsXpKdrSYgK43DxWtSrm2HgFE',
     credentials: true,
 }))
 

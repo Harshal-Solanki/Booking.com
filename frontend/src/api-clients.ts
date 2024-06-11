@@ -13,6 +13,10 @@ const API_BASE_URL= import.meta.env.BACKEND_URL_RENDER || "";
 export const fetchCurrentUser = async (): Promise<UserType> => {
     const response = await fetch(`${API_BASE_URL}/api/users/me`, {
       credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+    },
+    
     });
     if (!response.ok) {
       throw new Error("Error fetching user");
