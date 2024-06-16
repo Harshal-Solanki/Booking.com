@@ -52,7 +52,9 @@ export const signIn=  async(formData: SignInFormData) =>{
         },
         body: JSON.stringify(formData)
     })
-    const responsebody= await response.json();
+    const text= await response.text();
+    console.log(text)
+    const responsebody= JSON.parse(text)
     console.log(response)
     console.log(responsebody)
     if(!response.ok){

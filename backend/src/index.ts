@@ -9,7 +9,7 @@ import { v2 as cloudinary } from "cloudinary";
 import  myHotelsRoutes  from "./routes/myHotels";
 import hotelRoutes from "./routes/hotels";
 import bookingRoutes  from "./routes/myBookings";
-import path from "path";
+// import path from "path";
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 app.use(cors({
-    origin: 'https://vercel.com/harshal-solankis-projects/booking-com-rk5r/C29EsXpKdrSYgK43DxWtSrm2HgFE',
+    origin: 'https://booking-com-4yv6.onrender.com',
     credentials: true,
 }))
 
