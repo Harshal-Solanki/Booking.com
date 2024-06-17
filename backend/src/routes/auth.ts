@@ -4,6 +4,7 @@ import User from "../models/user";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import verifyToken from "../middleware/auth";
+import { strict } from "assert";
 
 const router= express.Router();
 
@@ -33,6 +34,7 @@ router.post("/login",[
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             maxAge: 86400000,
+            sameSite: 'strict',
         });
 
         res.status(200).json({userId: user._id})
