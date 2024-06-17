@@ -16,7 +16,7 @@ const verifyToken= (req: Request, res: Response, next: NextFunction)=>{
     }
 
     try{
-        const decode= jwt.verify(token, process.env.JWT_SECRET_KEY as string);
+        const decode= jwt.verify(token, process.env.JWT_SECRET_KEY as string)as JwtPayload;
         req.userId = (decode as JwtPayload).userId;
         next();
     } catch(error){
